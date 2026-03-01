@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.CdvSchedule.App.Presentation.Pages.SettingsPage"
+             Title="{Binding PageTitle}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="10">
+            <Border BackgroundColor="{DynamicResource SurfaceColor}"
+                    Stroke="{DynamicResource BorderColor}"
+                    StrokeShape="RoundRectangle 12"
+                    Padding="12">
+                <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto" RowSpacing="14">
+                    <Label Grid.Row="0" Text="{Binding LocaleLabel}" VerticalOptions="Center" />
+                    <Picker Grid.Row="0"
+                            x:Name="LocalePicker"
+                            Grid.Column="1"
+                            WidthRequest="170"
+                            ItemsSource="{Binding LocaleOptions}"
+                            ItemDisplayBinding="{Binding Label}"
+                            SelectedItem="{Binding SelectedLocale}"
+                            SelectedIndexChanged="OnLocaleChanged" />
+
+                    <Label Grid.Row="1" Text="{Binding ThemeLabel}" VerticalOptions="Center" />
+                    <Picker Grid.Row="1"
+                            x:Name="ThemePicker"
+                            Grid.Column="1"
+                            WidthRequest="170"
+                            ItemsSource="{Binding ThemeOptions}"
+                            ItemDisplayBinding="{Binding Label}"
+                            SelectedItem="{Binding SelectedTheme}"
+                            SelectedIndexChanged="OnThemeChanged" />
+
+                    <Label Grid.Row="2" Text="{Binding NotificationsLabel}" VerticalOptions="Center" />
+                    <Switch Grid.Row="2"
+                            x:Name="NotificationsSwitch"
+                            Grid.Column="1"
+                            HorizontalOptions="End"
+                            IsToggled="{Binding NotificationsEnabled}"
+                            Toggled="OnNotificationsToggled" />
+
+                    <Label Grid.Row="3" Text="{Binding NotificationTimeLabel}" VerticalOptions="Center" />
+                    <Picker Grid.Row="3"
+                            x:Name="NotificationOffsetPicker"
+                            Grid.Column="1"
+                            WidthRequest="170"
+                            ItemsSource="{Binding NotificationOffsetOptions}"
+                            ItemDisplayBinding="{Binding Label}"
+                            SelectedItem="{Binding SelectedNotificationOffset}"
+                            IsEnabled="{Binding NotificationsEnabled}"
+                            SelectedIndexChanged="OnNotificationOffsetChanged" />
+                </Grid>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

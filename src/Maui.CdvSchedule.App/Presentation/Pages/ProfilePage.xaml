@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.CdvSchedule.App.Presentation.Pages.ProfilePage"
+             Title="{Binding PageTitle}">
+
+    <ScrollView>
+        <Grid Padding="20" RowDefinitions="Auto,Auto,Auto">
+            <ActivityIndicator Grid.Row="0"
+                               IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               HorizontalOptions="Center"
+                               Margin="0,0,0,12" />
+
+            <VerticalStackLayout Grid.Row="1"
+                                 IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"
+                                 Spacing="12">
+                <Label Text="{Binding ErrorMessage}"
+                       TextColor="{DynamicResource DangerColor}"
+                       IsVisible="{Binding ErrorMessage, Converter={StaticResource StringHasValueConverter}}"
+                       HorizontalTextAlignment="Center" />
+
+                <Image Source="logo_text.png"
+                       HeightRequest="140"
+                       WidthRequest="140"
+                       HorizontalOptions="Center"
+                       Aspect="AspectFit" />
+
+                <Label Text="{Binding EmailLabel}" />
+                <Border BackgroundColor="{DynamicResource SurfaceColor}"
+                        Stroke="{DynamicResource BorderColor}"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="10,4">
+                    <Entry Text="{Binding Email}"
+                           Placeholder="{Binding EmailPlaceholder}"
+                           Keyboard="Email" />
+                </Border>
+
+                <Label Text="{Binding PasswordLabel}" />
+                <Border BackgroundColor="{DynamicResource SurfaceColor}"
+                        Stroke="{DynamicResource BorderColor}"
+                        StrokeShape="RoundRectangle 10"
+                        Padding="10,4">
+                    <Entry Text="{Binding Password}"
+                           Placeholder="{Binding PasswordPlaceholder}"
+                           IsPassword="True" />
+                </Border>
+
+                <Button Text="{Binding SignInButtonText}"
+                        Clicked="OnSignInClicked"
+                        Margin="0,8,0,0" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="2"
+                                 IsVisible="{Binding IsLoggedIn}"
+                                 Spacing="10"
+                                 HorizontalOptions="Center"
+                                 Margin="0,12,0,0">
+                <Border WidthRequest="148"
+                        HeightRequest="148"
+                        Stroke="{DynamicResource AccentColor}"
+                        StrokeThickness="2"
+                        StrokeShape="RoundRectangle 74"
+                        Padding="4"
+                        BackgroundColor="{DynamicResource SurfaceColor}">
+                    <Image Source="{Binding AvatarSource}"
+                           Aspect="AspectFill"
+                           HeightRequest="140"
+                           WidthRequest="140">
+                        <Image.Clip>
+                            <EllipseGeometry Center="70,70" RadiusX="70" RadiusY="70" />
+                        </Image.Clip>
+                    </Image>
+                </Border>
+
+                <Label Text="{Binding DisplayName}"
+                       FontSize="24"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="{Binding UserTypeDisplay}"
+                       FontSize="16"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{DynamicResource TextMutedColor}" />
+                <Label HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="{Binding AlbumNumberLabelPrefix}" />
+                            <Span Text=" " />
+                            <Span Text="{Binding AlbumNumber}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Button Text="{Binding SignOutButtonText}"
+                        Clicked="OnSignOutClicked"
+                        Margin="0,8,0,0" />
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

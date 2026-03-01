@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C8A06B00-D0ED-46AB-9737-6713036AA967}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.CdvSchedule.App", "src\Maui.CdvSchedule.App\Maui.CdvSchedule.App.csproj", "{73B42C66-A152-41D5-A3E8-004981C569D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.CdvSchedule.App.Tests", "src\Maui.CdvSchedule.App.Tests\Maui.CdvSchedule.App.Tests.csproj", "{82D603EB-B124-4419-9FE9-352DD59123BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.CdvSchedule.Domain", "src\Maui.CdvSchedule.Domain\Maui.CdvSchedule.Domain.csproj", "{F8D07FF0-5BAA-4FE9-B8C5-CC8EB0CA8C43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.CdvSchedule.Application", "src\Maui.CdvSchedule.Application\Maui.CdvSchedule.Application.csproj", "{8AE4FAA2-A011-4B83-9CD4-AC917350312C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{73B42C66-A152-41D5-A3E8-004981C569D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B42C66-A152-41D5-A3E8-004981C569D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B42C66-A152-41D5-A3E8-004981C569D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B42C66-A152-41D5-A3E8-004981C569D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82D603EB-B124-4419-9FE9-352DD59123BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82D603EB-B124-4419-9FE9-352DD59123BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82D603EB-B124-4419-9FE9-352DD59123BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82D603EB-B124-4419-9FE9-352DD59123BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8D07FF0-5BAA-4FE9-B8C5-CC8EB0CA8C43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8D07FF0-5BAA-4FE9-B8C5-CC8EB0CA8C43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8D07FF0-5BAA-4FE9-B8C5-CC8EB0CA8C43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8D07FF0-5BAA-4FE9-B8C5-CC8EB0CA8C43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE4FAA2-A011-4B83-9CD4-AC917350312C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE4FAA2-A011-4B83-9CD4-AC917350312C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE4FAA2-A011-4B83-9CD4-AC917350312C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE4FAA2-A011-4B83-9CD4-AC917350312C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{73B42C66-A152-41D5-A3E8-004981C569D3} = {C8A06B00-D0ED-46AB-9737-6713036AA967}
+		{82D603EB-B124-4419-9FE9-352DD59123BB} = {C8A06B00-D0ED-46AB-9737-6713036AA967}
+		{F8D07FF0-5BAA-4FE9-B8C5-CC8EB0CA8C43} = {C8A06B00-D0ED-46AB-9737-6713036AA967}
+		{8AE4FAA2-A011-4B83-9CD4-AC917350312C} = {C8A06B00-D0ED-46AB-9737-6713036AA967}
+	EndGlobalSection
+EndGlobal

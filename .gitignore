@@ -1,0 +1,27 @@
+# Build outputs
+[Bb]in/
+[Oo]bj/
+artifacts/
+
+# IDE/user-specific files
+.idea/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.DotSettings.user
+
+# Local machine/runtime folders
+.android-home/
+.sandbox-home/
+
+# Logs and diagnostics
+*.log
+*_logcat*.txt
+
+# Test outputs
+TestResults/
+
+# OS files
+.DS_Store
+Thumbs.db

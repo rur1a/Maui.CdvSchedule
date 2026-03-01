@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.CdvSchedule.App.Presentation.Pages.SchedulePage"
+             Title="{Binding PageTitle}">
+
+    <Grid RowDefinitions="Auto,*" Padding="12,10">
+        <Border Grid.Row="0"
+                IsVisible="{Binding IsLoggedIn}"
+                BackgroundColor="{DynamicResource SurfaceColor}"
+                Stroke="{DynamicResource BorderColor}"
+                StrokeShape="RoundRectangle 12"
+                Padding="8"
+                Margin="0,0,0,10">
+            <VerticalStackLayout Spacing="6">
+                <Grid ColumnDefinitions="Auto,Auto,*,Auto,Auto" ColumnSpacing="6">
+                    <Button Grid.Column="0"
+                            Text="{Binding PrevMonthText}"
+                            Clicked="OnPrevMonthClicked"
+                            Padding="8,4"
+                            FontSize="12" />
+
+                    <Button Grid.Column="1"
+                            Text="{Binding TodayText}"
+                            Clicked="OnTodayClicked"
+                            Padding="8,4"
+                            FontSize="12" />
+
+                    <Label Grid.Column="2"
+                           Text="{Binding MonthTitle}"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"
+                           VerticalOptions="Center"
+                           LineBreakMode="TailTruncation" />
+
+                    <Button Grid.Column="3"
+                            Text="{Binding HelpText}"
+                            Clicked="OnHelpClicked"
+                            Padding="8,4"
+                            FontSize="12" />
+
+                    <Button Grid.Column="4"
+                            Text="{Binding NextMonthText}"
+                            Clicked="OnNextMonthClicked"
+                            Padding="8,4"
+                            FontSize="12" />
+                </Grid>
+
+                <ContentView x:Name="CalendarHost" />
+            </VerticalStackLayout>
+        </Border>
+
+        <RefreshView Grid.Row="1"
+                     IsRefreshing="{Binding IsRefreshing}"
+                     Refreshing="OnRefreshing">
+            <Grid RowDefinitions="Auto,*">
+                <VerticalStackLayout Grid.Row="0"
+                                     IsVisible="{Binding IsLoggedIn}"
+                                     Spacing="2"
+                                     Padding="2,0,2,6">
+                    <Label Text="{Binding SelectedDayTitle}"
+                           FontSize="16"
+                           FontAttributes="Bold" />
+                    <Label Text="{Binding SelectedDaySubtitle}"
+                           FontSize="12"
+                           TextColor="{DynamicResource TextMutedColor}" />
+                </VerticalStackLayout>
+
+                <Grid Grid.Row="1">
+                    <Label Text="{Binding EmptyStateText}"
+                           IsVisible="{Binding IsLoggedIn, Converter={StaticResource InverseBooleanConverter}}"
+                           HorizontalTextAlignment="Center"
+                           VerticalTextAlignment="Center"
+                           FontSize="24"
+                           Margin="16" />
+
+                    <CollectionView x:Name="LessonsCollection"
+                                    IsVisible="{Binding IsLoggedIn}"
+                                    ItemsSource="{Binding SelectedDayLessons}"
+                                    SelectionMode="Single"
+                                    SelectionChanged="OnLessonSelectionChanged">
+                        <CollectionView.EmptyView>
+                            <VerticalStackLayout Padding="24">
+                                <Label Text="{Binding EmptyStateText}"
+                                       HorizontalTextAlignment="Center"
+                                       TextColor="{DynamicResource TextMutedColor}" />
+                            </VerticalStackLayout>
+                        </CollectionView.EmptyView>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border BackgroundColor="{DynamicResource CardColor}"
+                                        Stroke="{DynamicResource BorderColor}"
+                                        StrokeShape="RoundRectangle 10"
+                                        Margin="0,0,0,8">
+                                    <Grid ColumnDefinitions="6,*">
+                                        <BoxView BackgroundColor="{Binding StripeColor}" />
+
+                                        <Grid Grid.Column="1"
+                                              Padding="10,8"
+                                              RowDefinitions="Auto,Auto"
+                                              ColumnDefinitions="*,Auto">
+                                            <Label Text="{Binding TimeRange}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="0" />
+                                            <Label Text="{Binding RoomOrStatus}"
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   TextColor="{Binding RoomTextColor}"
+                                                   HorizontalTextAlignment="End" />
+                                            <Label Text="{Binding SubjectName}"
+                                                   Grid.Row="1"
+                                                   Grid.ColumnSpan="2"
+                                                   LineBreakMode="TailTruncation" />
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </Grid>
+            </Grid>
+        </RefreshView>
+    </Grid>
+</ContentPage>
